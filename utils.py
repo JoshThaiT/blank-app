@@ -109,10 +109,6 @@ def build_lstm_dataset(video_files, labels, window_size=30, step=5):
 
     return np.array(X), np.array(y), np.array(vid_ids)
 
-def smooth_prediction(new_pred): 
-    frame_history.append(new_pred) 
-    return Counter(frame_history).most_common(1)[0][0]
-
 def rescale_frame(frame, scale=0.75):
     width = int(frame.shape[1] * scale)
     height = int(frame.shape[0] * scale)
